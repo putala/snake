@@ -1,3 +1,4 @@
+
 package org.example.snake;
 
 import javafx.application.Application;
@@ -15,8 +16,6 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-
 
 
 
@@ -151,9 +150,3 @@ public class SnakeGame extends Application {
         return false;
     }
 }
-
-
-
-
-
-
