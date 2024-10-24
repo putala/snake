@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5aa374a0-989a-414a-9a5f-dbf4f3cf244f" name="Changes" comment="hex and orto">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/snake/Slither.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/snake/Slither.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/snake/Slither.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/snake/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/snake/SnakeGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +65,7 @@
     "Application.Slither.executor": "Run",
     "Application.SnakeGame.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "slither",
+    "git-widget-placeholder": "corrections",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -130,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729782802595</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="basic movement">
+      <option name="closed" value="true" />
+      <created>1729802874803</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729802874803</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,8 +158,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="orthogonal snake" />
     <MESSAGE value="food remove" />
-    <MESSAGE value="basic movement" />
     <MESSAGE value="hex and orto" />
-    <option name="LAST_COMMIT_MESSAGE" value="hex and orto" />
+    <MESSAGE value="basic movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic movement" />
   </component>
 </project>

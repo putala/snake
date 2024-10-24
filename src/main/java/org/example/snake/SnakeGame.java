@@ -51,13 +51,13 @@ public class SnakeGame extends Application {
         primaryStage.show();
 
         scene.setOnKeyPressed(event -> {
-            if (event.getCode() == UP && direction != DOWN.getCode()) {
+            if ((event.getCode() == UP || event.getCode() == KeyCode.W) && direction != DOWN.getCode()) {
                 direction = UP.getCode();
-            } else if (event.getCode() == DOWN && direction != UP.getCode()) {
+            } else if ((event.getCode() == DOWN || event.getCode() == KeyCode.S) && direction != UP.getCode()) {
                 direction = DOWN.getCode();
-            } else if (event.getCode() == LEFT && direction != RIGHT.getCode()) {
+            } else if ((event.getCode() == LEFT || event.getCode() == KeyCode.A) && direction != RIGHT.getCode()) {
                 direction = LEFT.getCode();
-            } else if (event.getCode() == RIGHT && direction != LEFT.getCode()) {
+            } else if ((event.getCode() == RIGHT || event.getCode() == KeyCode.D) && direction != LEFT.getCode()) {
                 direction = RIGHT.getCode();
             }
         });
@@ -82,7 +82,6 @@ public class SnakeGame extends Application {
         Rectangle head = snake.getFirst();
         int newX = (int) head.getX();
         int newY = (int) head.getY();
-
 
 
         switch (direction) {
@@ -132,10 +131,6 @@ public class SnakeGame extends Application {
         Random rand = new Random();
         int x = rand.nextInt(WIDTH / TILE_SIZE) * TILE_SIZE;
         int y = rand.nextInt(HEIGHT / TILE_SIZE) * TILE_SIZE;
-
-//        food = new Rectangle(x, y, TILE_SIZE, TILE_SIZE);
-//        food.setFill(Color.RED);
-//        pane.getChildren().add(food);
 
         // Tworzymy jedzenie jako koła (Circle) z promieniem równym połowie TILE_SIZE
         food = new Circle(x + TILE_SIZE / 2, y + TILE_SIZE / 2, TILE_SIZE / 2);

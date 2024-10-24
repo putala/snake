@@ -60,10 +60,10 @@ public class Slither extends Application {
 
         // Obsługa klawiszy
         scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.A) {
+            if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
                 // Obrót w lewo (zmniejszamy kąt)
                 direction -= rotationSpeed;
-            } else if (event.getCode() == KeyCode.D) {
+            } else if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) {
                 // Obrót w prawo (zwiększamy kąt)
                 direction += rotationSpeed;
             }
@@ -148,7 +148,7 @@ public class Slither extends Application {
         // Pobieramy głowę węża
         Circle head = snake.getFirst();
 
-        // Sprawdzamy kolizję z ciałem węża, zaczynając od 20. segmentu
+        // Sprawdzamy kolizję z ciałem węża, zaczynając od 10. segmentu
         for (int i = IGNORE_SEGMENTS_COUNT; i < snake.size(); i++) {
             Circle segment = snake.get(i);
             if (Math.hypot(head.getCenterX() - segment.getCenterX(), head.getCenterY() - segment.getCenterY()) < BLOCK_SIZE) {
