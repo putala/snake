@@ -83,6 +83,8 @@ public class SnakeGame extends Application {
         int newX = (int) head.getX();
         int newY = (int) head.getY();
 
+
+
         switch (direction) {
             case 37: // LEFT
                 newX -= TILE_SIZE;
