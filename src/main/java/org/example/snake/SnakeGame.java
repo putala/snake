@@ -100,22 +100,6 @@ public class SnakeGame extends Application {
                 break;
         }
 
-//
-//        switch (direction) {
-//            case 37, 65: // LEFT
-//                newX -= TILE_SIZE;
-//                break;
-//            case 38, 87: // UP
-//                newY -= TILE_SIZE;
-//                break;
-//            case 39, 68: // RIGHT
-//                newX += TILE_SIZE;
-//                break;
-//            case 40, 83: // DOWN
-//                newY += TILE_SIZE;
-//                break;
-//        }
-
 
         if (newX < 0 || newX >= WIDTH || newY < 0 || newY >= HEIGHT || isColliding(newX, newY)) {
             gameOver = true;
