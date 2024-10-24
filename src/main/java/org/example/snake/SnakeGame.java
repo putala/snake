@@ -1,26 +1,21 @@
 package org.example.snake;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
-import javafx.application.Application;
 import javafx.animation.AnimationTimer;
-import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
+
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
-import java.io.IOException;
 
 
 
@@ -34,7 +29,7 @@ public class SnakeGame extends Application {
     private static final int HEIGHT = 400;
 
     private ArrayList<Rectangle> snake;
-    private Rectangle food;
+    private Circle food;
     private int direction = KeyCode.RIGHT.getCode();
     private boolean gameOver = false;
 
@@ -86,7 +81,7 @@ public class SnakeGame extends Application {
     private void moveSnake() {
         if (gameOver) return;
 
-        Rectangle head = snake.get(0);
+        Rectangle head = snake.getFirst();
         int newX = (int) head.getX();
         int newY = (int) head.getY();
 
@@ -117,10 +112,12 @@ public class SnakeGame extends Application {
         snake.add(0, newHead);
         ((Pane) head.getParent()).getChildren().add(newHead);
 
-        if (newHead.getBoundsInParent().intersects(food.getBoundsInParent())) {
+        if (newHead.getX() == food.getCenterX() - TILE_SIZE / 2 && newHead.getY() == food.getCenterY() - TILE_SIZE / 2) {
+            // Wąż zjadł jedzenie, spawn nowego jedzenia
             spawnFood((Pane) head.getParent());
         } else {
-            Rectangle tail = snake.remove(snake.size() - 1);
+            // Usuwamy ostatni segment ogona
+            Rectangle tail = snake.removeLast();
             ((Pane) head.getParent()).getChildren().remove(tail);
         }
     }
@@ -135,8 +132,13 @@ public class SnakeGame extends Application {
         int x = rand.nextInt(WIDTH / TILE_SIZE) * TILE_SIZE;
         int y = rand.nextInt(HEIGHT / TILE_SIZE) * TILE_SIZE;
 
-        food = new Rectangle(x, y, TILE_SIZE, TILE_SIZE);
-        food.setFill(Color.RED);
+//        food = new Rectangle(x, y, TILE_SIZE, TILE_SIZE);
+//        food.setFill(Color.RED);
+//        pane.getChildren().add(food);
+
+        // Tworzymy jedzenie jako koło (Circle) z promieniem równym połowie TILE_SIZE
+        food = new Circle(x + TILE_SIZE / 2, y + TILE_SIZE / 2, TILE_SIZE / 2);
+        food.setFill(Color.RED); // Ustawienie koloru jedzenia
         pane.getChildren().add(food);
     }
 
@@ -149,3 +151,9 @@ public class SnakeGame extends Application {
         return false;
     }
 }
+
+
+
+
+
+
