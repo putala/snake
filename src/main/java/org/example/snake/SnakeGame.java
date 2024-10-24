@@ -13,12 +13,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-
 import java.util.ArrayList;
 import java.util.Random;
 
-
-
+import static javafx.scene.input.KeyCode.*;
 
 
 public class SnakeGame extends Application {
@@ -29,7 +27,8 @@ public class SnakeGame extends Application {
 
     private ArrayList<Rectangle> snake;
     private Circle food;
-    private int direction = KeyCode.RIGHT.getCode();
+    private int direction = RIGHT.getCode();
+//    KeyCode direction = KeyCode.RIGHT.getCode();
     private boolean gameOver = false;
 
     public static void main(String[] args) {
@@ -52,14 +51,14 @@ public class SnakeGame extends Application {
         primaryStage.show();
 
         scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.UP && direction != KeyCode.DOWN.getCode()) {
-                direction = KeyCode.UP.getCode();
-            } else if (event.getCode() == KeyCode.DOWN && direction != KeyCode.UP.getCode()) {
-                direction = KeyCode.DOWN.getCode();
-            } else if (event.getCode() == KeyCode.LEFT && direction != KeyCode.RIGHT.getCode()) {
-                direction = KeyCode.LEFT.getCode();
-            } else if (event.getCode() == KeyCode.RIGHT && direction != KeyCode.LEFT.getCode()) {
-                direction = KeyCode.RIGHT.getCode();
+            if (event.getCode() == UP && direction != DOWN.getCode()) {
+                direction = UP.getCode();
+            } else if (event.getCode() == DOWN && direction != UP.getCode()) {
+                direction = DOWN.getCode();
+            } else if (event.getCode() == LEFT && direction != RIGHT.getCode()) {
+                direction = LEFT.getCode();
+            } else if (event.getCode() == RIGHT && direction != LEFT.getCode()) {
+                direction = RIGHT.getCode();
             }
         });
 
@@ -99,6 +98,23 @@ public class SnakeGame extends Application {
                 break;
         }
 
+//
+//        switch (direction) {
+//            case 37, 65: // LEFT
+//                newX -= TILE_SIZE;
+//                break;
+//            case 38, 87: // UP
+//                newY -= TILE_SIZE;
+//                break;
+//            case 39, 68: // RIGHT
+//                newX += TILE_SIZE;
+//                break;
+//            case 40, 83: // DOWN
+//                newY += TILE_SIZE;
+//                break;
+//        }
+
+
         if (newX < 0 || newX >= WIDTH || newY < 0 || newY >= HEIGHT || isColliding(newX, newY)) {
             gameOver = true;
             System.out.println("Game Over!");
@@ -135,7 +151,7 @@ public class SnakeGame extends Application {
 //        food.setFill(Color.RED);
 //        pane.getChildren().add(food);
 
-        // Tworzymy jedzenie jako koło (Circle) z promieniem równym połowie TILE_SIZE
+        // Tworzymy jedzenie jako koła (Circle) z promieniem równym połowie TILE_SIZE
         food = new Circle(x + TILE_SIZE / 2, y + TILE_SIZE / 2, TILE_SIZE / 2);
         food.setFill(Color.RED); // Ustawienie koloru jedzenia
         pane.getChildren().add(food);

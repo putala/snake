@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5aa374a0-989a-414a-9a5f-dbf4f3cf244f" name="Changes" comment="food remove">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/snake/HexagonalSnakeGame.java" afterDir="false" />
+    <list default="true" id="5aa374a0-989a-414a-9a5f-dbf4f3cf244f" name="Changes" comment="basic movement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/snake/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/snake/SnakeGame.java" afterDir="false" />
     </list>
@@ -112,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729773993768</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="basic movement">
+      <option name="closed" value="true" />
+      <created>1729777621037</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729777621037</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="orthogonal snake" />
     <MESSAGE value="food remove" />
-    <option name="LAST_COMMIT_MESSAGE" value="food remove" />
+    <MESSAGE value="basic movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic movement" />
   </component>
 </project>
