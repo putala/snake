@@ -16,9 +16,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import java.io.IOException;
+
+
+
 
 
 
@@ -121,6 +126,11 @@ public class SnakeGame extends Application {
     }
 
     private void spawnFood(Pane pane) {
+        // Jeśli istnieje jedzenie, usuń je
+        if (food != null) {
+            pane.getChildren().remove(food);
+        }
+
         Random rand = new Random();
         int x = rand.nextInt(WIDTH / TILE_SIZE) * TILE_SIZE;
         int y = rand.nextInt(HEIGHT / TILE_SIZE) * TILE_SIZE;
