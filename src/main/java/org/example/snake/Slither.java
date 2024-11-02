@@ -24,7 +24,7 @@ public class Slither extends Application {
     private static final int HEIGHT = 600;
 
     private final List<Circle> snake = new ArrayList<>();
-    private double direction = 0; // Kąt w radianach (0 = w prawo)
+    private double direction = -Math.PI / 2; // Kąt w radianach (0 = w prawo)
     private final double rotationSpeed = Math.toRadians(5); // Prędkość obrotu w radianach (5 stopni na każdą zmianę)
 
     private Circle food; // Okrągłe "jedzenie"
@@ -33,15 +33,32 @@ public class Slither extends Application {
 
     private static final int IGNORE_SEGMENTS_COUNT = 10; // Liczba segmentów, które ignorujemy przy sprawdzaniu kolizji
 
+    private MapGenerator mapGenerator;
+
     @Override
     public void start(Stage stage) {
         Pane root = new Pane();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
 
+        // Generator mapy
+        mapGenerator = new MapGenerator();
+        mapGenerator.generateMap(root, WIDTH, HEIGHT);
+
         // Głowa węża jako kółko
         Circle snakeHead = new Circle(BLOCK_SIZE / 2, Color.GREEN);
+        snakeHead.setCenterX(WIDTH / 2);
+        snakeHead.setCenterY(2 * HEIGHT / 3);
         snake.add(snakeHead);
         root.getChildren().add(snakeHead);
+
+        // Dodajemy początkowe segmenty
+        for (int i = 1; i < 5; i++) {
+            Circle segment = new Circle(BLOCK_SIZE / 2, Color.GREEN);
+            segment.setCenterX(snakeHead.getCenterX() - i * BLOCK_SIZE);
+            segment.setCenterY(snakeHead.getCenterY());
+            snake.add(segment);
+            root.getChildren().add(segment);
+        }
 
         // Dodajemy "jedzenie" na planszy
         food = new Circle(BLOCK_SIZE / 2, Color.RED);
@@ -106,6 +123,12 @@ public class Slither extends Application {
             gameOver = true;
             System.out.println("Game Over! Wąż uderzył w krawędź.");
         }
+
+        // Sprawdzamy kolizję z wyspami
+        if (mapGenerator.checkCollisionWithSnake(head)) {
+            gameOver = true;
+            System.out.println("Game Over! Wąż uderzył w wyspę.");
+        }
     }
 
     private void placeFood(Pane root) {
@@ -163,10 +186,6 @@ public class Slither extends Application {
         launch(args);
     }
 }
-
-
-
-
 
 
 
